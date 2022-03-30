@@ -15,3 +15,8 @@ To add mappings (add this to .vimrc)
 let mapleader = " "
 nnoremap <leader>f :VimSearchMini 
 ```
+By default the command will search to the current location vim is open at, to
+custom the default location.
+```
+let g:vsm_default_location = "src"
+```

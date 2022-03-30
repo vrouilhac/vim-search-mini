@@ -9,8 +9,14 @@ if exists('g:loaded_search_mini')
 endif
 let g:loaded_search_mini = 1
 
+" Options
+if !exists('g:vsm_default_location')
+  let g:vsm_default_location = "."
+endif
+
 func VimSearchMiniGrepSearch(pattern)
-  let value = system("grep -R " . a:pattern . " src")
+  echom "grep -R " . a:pattern  . " " . g:vsm_default_location
+  let value = system("grep -R " . a:pattern . " " . g:vsm_default_location)
   return value
 endfunc
 
@@ -48,4 +54,4 @@ func VimSearchMini(pattern)
   :copen
 endfunc
 
-command -nargs=+ VimSearchMin :call VimSearchMini(<q-args>)
+command -nargs=+ VimSearchMini :call VimSearchMini(<q-args>)

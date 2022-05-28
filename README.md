@@ -20,3 +20,8 @@ custom the default location.
 ```
 let g:vsm_default_location = "src"
 ```
+
+You can configure what folders to exclude. (see --exclude-dir of grep doc)
+```
+let g:vsm_exclude_directories = "{.git,node_modules}"
+```

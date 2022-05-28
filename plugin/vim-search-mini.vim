@@ -14,9 +14,12 @@ if !exists('g:vsm_default_location')
   let g:vsm_default_location = "."
 endif
 
+if !exists('g:vsm_exclude_directories')
+  let g:vsm_exclude_directories = ""
+endif
+
 func VimSearchMiniGrepSearch(pattern)
-  echom "grep -R " . a:pattern  . " " . g:vsm_default_location
-  let value = system("grep -R " . a:pattern . " " . g:vsm_default_location)
+  let value = system("grep -rli --exclude-dir=" .g:vsm_exclude_directories . " \"" . a:pattern  . "\" " . g:vsm_default_location)
   return value
 endfunc
 
